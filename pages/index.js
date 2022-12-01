@@ -1,77 +1,57 @@
+import { useState, useEffect, useRef } from "react";
 import hero from './assets/hero.jpg'
-import logo from './assets/asms.jpg'
+import sl1 from './assets/sli.jpg'
+import sl2 from './assets/slii.jpg'
+import sl3 from './assets/sliii.jpg'
 import liga from './assets/laliga.jpeg'
 import ligabs from './assets/laliga bs.png'
 import palmares from './assets/palmares.jpg'
 import paposy from './assets/paposy.jpg'
+import SliderComponent from './components/swiperComponent'
+import Navbar from  './components/Navbar'
 import Image from 'next/image'
+
 export default function Home() {
+
   return (
     <div className="w-full min-h-screen">
-      <nav className="w-full flex items-center justify-center shadow-sm p-2">
-      <div className="w-[100px] h-[60px] object-cover">
-        <Image src={logo}/>
-        </div>
-      </nav>
-      
-      <div className=" relative overflow-clip flex items-center justify-center w-full h-[88vh]">
+    <Navbar />
 
-        <div className=' absolute left-0 h-full w-[25%] '>
-          <div className='flex items-end'>
-            <div className='h-[324px] w-[44%] bg-teal-300'></div>
-            <div className='h-[180px] w-[52%] bg-teal-500 ml-1.5 rounded-br-[48%]'></div>
-          </div>
-          <div className='h-[216px] w-[84%] bg-teal-500 my-1 ml-1'></div>
-        </div>
-
-        <div className='absolute right-0 h-full w-[25%] '>
-
-          <div className='h-[180px] w-[64%] bg-teal-500 my-1 ml-28 rounded-tl-[48%]'>
-
-          </div>
-          <div className='flex items-start'>
-          <div className='h-[180px] w-[52%] bg-teal-500 mx-1.5'></div>
-            <div className='h-[356px] w-[44%] bg-teal-300'></div>
-            
-          </div>
-        </div>
-
-
-          <div className="flex flex-col items-center w-[60%] p-4 text-center z-10">
+  <div className='relative w-full h-[88vh]'>
+    <SliderComponent a={sl1} b={sl2} c={sl3}/>
+    <div className='absolute w-full h-[88vh] flex top-0 left-0 bg-[#212121]/70 z-10'>
+    <div className="flex flex-col items-center w-[60%] p-4 text-center z-10 mx-auto mt-4">
             <div className='flex items-center justify-start my-4'>
             <h4 className='font-medium text-md text-red-600'>25-26 Février, 2023</h4>
             <div className='h-2 w-2 bg-red-600 rounded-full mx-3'></div>
             <h4 className='font-medium text-md text-red-600'>Yaoundé, Cameroun</h4>
             </div>
-            <h1 className="font-bold text-7xl tracking-tight text-zinc-800 mb-8">African Sport Marketing Summit <h1 className='text-red-600'>2023</h1></h1>
+            <h1 className="font-bold text-7xl tracking-tight text-white mb-8">African Sport Marketing Summit <h1 className='text-red-600'>2023</h1></h1>
             <button className='p-3 text-white bg-red-600 rounded-lg font-medium text-md my-5'>Réservez maintenant</button>
             <div className='flex items-start justify-start my-4'>
             <div className='flex flex-col items-start justify-start mx-4'>
-            <h4 className='font-medium text-base text-zinc-600'>Intervenants</h4>
+            <h4 className='font-medium text-base text-white'>Intervenants</h4>
             <h2 className='font-semibold text-xl text-red-600 mt-2'>14</h2>
             </div>
 
             <div className='flex flex-col items-start justify-start mx-6'>
-            <h4 className='font-medium text-base text-zinc-600'>Lieu</h4>
+            <h4 className='font-medium text-base text-white'>Lieu</h4>
             <h2 className='font-semibold text-xl text-red-600 mt-2'>Palais des Sports</h2>
             </div>
 
             <div className='flex flex-col items-start justify-start mx-6'>
-            <h4 className='font-medium text-base text-zinc-600'>Adresse</h4>
+            <h4 className='font-medium text-base text-white'>Adresse</h4>
             <h2 className='font-semibold text-xl text-red-600 mt-2'>Yaoundé</h2>
             </div>
             </div>
           </div>
+    </div>
+    </div>
 
-          {/*<div className="w-[620px] h-[420px] object-cover">
-            <Image className='w-full h-full' src={hero}/>
-  </div>*/}
-      </div>
+          <div id="wh" className='relative p-8 flex w-full items-center justify-start my-28'>
 
-          <div className='relative p-8 flex w-full items-center justify-start my-28'>
-
-          <div className='relative flex w-[412px] h-[412px] mx-28 mt-8 aspect-square'>
-              <div className='absolute w-[412px] h-[412px] rounded-lg aspect-square rotate-6 bg-gradient-to-l from-red-600 to-red-700 z-1'></div>
+          <div  className='relative flex w-[412px] h-[412px] mx-28 mt-8 aspect-square'>
+              <div className='absolute w-[412px] h-[412px] rounded-lg aspect-square rotate-6 bg-gradient-to-l from-yellow-300 to-yellow-400 z-1'></div>
               <Image className='w-full h-full object-cover rounded-lg z-10' src={hero}/>
             </div>
             <div className='flex flex-col w-[48%]'>
@@ -120,6 +100,8 @@ export default function Home() {
 
 
           </div>
+            <span id="pa"></span>
+
 
           <div className='px-4 mx-auto max-w-7xl my-24'>
             <h2 className='mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-zinc-900 sm:text-5xl'>Nos Sponsors actuels pour nos ateliers et nos intervenants.</h2>
@@ -132,8 +114,8 @@ export default function Home() {
           </div>
 
           <div className='flex flex-col items-center justify-center w-full h-auto bg-slate-500 mt-20 mx-auto p-8'>
-            <h1 className='font-bold text-6xl text-white text-center my-6'>Les Thématiques</h1>
-            <div class="grid grid-cols-4 gap-4 my-24">
+            <h1 id="th" className='font-bold text-6xl text-white text-center my-6'>Les Thématiques</h1>
+            <div className="grid grid-cols-4 gap-4 my-24">
                 <div className='flex flex-col items-center justify-center w-[280px] h-[180px] bg-slate-200'>01</div>
                 <div className='flex flex-col items-center justify-center w-[280px] h-[180px] bg-slate-200'>02</div>
                 <div className='flex flex-col items-center justify-center w-[280px] h-[180px] bg-slate-200'>03</div>
@@ -154,7 +136,20 @@ export default function Home() {
                 <div className='flex flex-col items-center justify-center w-[280px] h-[180px] bg-slate-200'>06</div>
               </div>
           </div>
-          <div className='w-full h-auto p-6 bg-red-600 flex items-center justify-center font-semibold text-2xl text-white'>
+          <div id="sp" className='relative overflow-clip w-full h-auto p-6 bg-zinc-700 flex items-center justify-center font-semibold text-2xl text-white'>
+                    
+          <div className="absolute right-0 w-0 h-0 mt-40
+                  border-t-[240px] border-t-transparent
+                  border-r-[480px] border-r-yellow-400
+                  border-b-[240px] border-b-transparent
+                  "></div>
+
+<div className="absolute left-0 w-0 h-0 mt-40 rotate-180
+                  border-t-[240px] border-t-transparent
+                  border-r-[480px] border-r-red-700
+                  border-b-[240px] border-b-transparent
+                  "></div>
+
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.6} stroke="currentColor" className="mr-6 rotate-[-16deg] w-8 h-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
             </svg>
@@ -167,89 +162,89 @@ export default function Home() {
           </div>
 
 
-          <div className='grid grid-cols-6 gap-6 p-20'>
+          <div className='grid grid-cols-4 gap-4 p-20'>
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               <div className='flex flex-col items-center justify-center'>
-                <div className='w-28 h-28 rounded-full bg-slate-500 my-4'></div>
-                <h2 className='text-lg font-bold text-red-700'>Nom du speakers</h2>
-                <h4 className='text-md font-medium mt-2'>Poste du speaker</h4>
+                <div className='w-36 h-36 rounded-full bg-slate-500 my-4'></div>
+                <h2 className='text-2xl font-bold text-red-700'>Nom du speakers</h2>
+                <h4 className='text-md font-normal mt-2'>Poste du speaker</h4>
               </div>
 
               
@@ -258,7 +253,20 @@ export default function Home() {
 
 
 
-          <div className='w-full h-auto p-6 bg-red-600 flex items-center justify-center font-semibold text-2xl text-white'>
+          <div className=' relative  overflow-clip w-full h-auto p-6 bg-zinc-700 flex items-center justify-center font-semibold text-2xl text-white'>
+          
+          <div className="absolute right-0 w-0 h-0 mt-40
+                  border-t-[240px] border-t-transparent
+                  border-r-[480px] border-r-yellow-400
+                  border-b-[240px] border-b-transparent
+                  "></div>
+
+<div className="absolute left-0 w-0 h-0 mt-40 rotate-180
+                  border-t-[240px] border-t-transparent
+                  border-r-[480px] border-r-red-700
+                  border-b-[240px] border-b-transparent
+                  "></div>
+          
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-4 rotate-[-16deg] w-8 h-8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
               </svg>
@@ -287,7 +295,7 @@ export default function Home() {
             </div>
 
             <div className='relative flex w-[412px] h-[412px] ml-36 mt-8 aspect-square rotate-3'>
-            <div className='absolute w-[412px] h-[412px] rounded-lg aspect-square bg-gradient-to-l from-red-600 to-red-700 z-1 -rotate-6'></div>
+            <div className='absolute w-[412px] h-[412px] rounded-lg aspect-square bg-gradient-to-l from-yellow-300 to-yellow-400 z-1 -rotate-6'></div>
               <Image className='w-full h-full object-cover rounded-lg z-10' src={paposy}/>
             </div>
           </div>
